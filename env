@@ -1,0 +1,153 @@
+# LLM Document Processing System - Environment Variables (DEPLOYMENT READY)
+# Updated for HackRX webhook submission with your current settings
+
+# ===========================================
+# LLM CONFIGURATION (OLLAMA - FREE!)
+# ===========================================
+LLM_PROVIDER=ollama
+OLLAMA_API_BASE=http://localhost:11434
+LLM_MODEL=gemma2:2b
+LLM_TEMPERATURE=0.1
+LLM_MAX_TOKENS=2000
+LLM_TIMEOUT=180
+
+# Alternative models (uncomment to switch):
+# LLM_MODEL=gemma2:2b     # Faster, smaller model for cloud deployment
+# LLM_MODEL=mistral       # Good reasoning capabilities
+# LLM_MODEL=qwen2.5:3b    # Multilingual support
+
+# ===========================================
+# PROJECT ENVIRONMENT
+# ===========================================
+ENVIRONMENT=development
+DEBUG=True
+
+# For production deployment, change to:
+# ENVIRONMENT=production
+# DEBUG=False
+
+# ===========================================
+# API SETTINGS (WEBHOOK READY)
+# ===========================================
+API_HOST=0.0.0.0
+API_PORT=8000
+CORS_ORIGINS=*
+
+# For specific origins in production:
+# CORS_ORIGINS=http://localhost:3000,http://127.0.0.1:3000,https://your-frontend.com
+
+# ===========================================
+# SECURITY SETTINGS
+# ===========================================
+SECRET_KEY=your_super_secret_key_change_this_in_production
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+
+# ===========================================
+# DATABASE & STORAGE PATHS
+# ===========================================
+DATABASE_URL=sqlite:///./data/app.db
+VECTOR_DB_PATH=./data/vector_db/chroma_db/
+RAW_DOCUMENTS_PATH=./data/raw_documents/
+PROCESSED_DATA_PATH=./data/processed/
+LOGS_PATH=./logs/
+
+# ===========================================
+# CHROMADB SETTINGS
+# ===========================================
+CHROMA_HOST=localhost
+CHROMA_PORT=8000
+CHROMA_PERSIST_DIR=./data/vector_db/chroma_db/
+
+# ===========================================
+# EMBEDDING & MODEL SETTINGS
+# ===========================================
+EMBEDDING_MODEL=BAAI/bge-base-en-v1.5
+EMBEDDING_BATCH_SIZE=32
+EMBEDDING_NORMALIZE=true
+
+# ===========================================
+# PERFORMANCE SETTINGS
+# ===========================================
+MAX_WORKERS=4
+CACHE_TTL=3600
+REQUEST_TIMEOUT=60
+MAX_CONCURRENT_REQUESTS=10
+ENABLE_GPU=true
+MAX_BATCH_SIZE=4
+
+# ===========================================
+# FILE UPLOAD SETTINGS
+# ===========================================
+MAX_FILE_SIZE_MB=50
+ALLOWED_EXTENSIONS=pdf,docx,txt,eml
+
+# ===========================================
+# LOGGING CONFIGURATION
+# ===========================================
+LOG_LEVEL=INFO
+LOG_FILE=./logs/app.log
+
+# ===========================================
+# RATE LIMITING & SECURITY
+# ===========================================
+RATE_LIMIT=100/minute
+BURST_LIMIT=20
+
+# ===========================================
+# MONITORING & METRICS
+# ===========================================
+ENABLE_METRICS=True
+METRICS_PORT=9090
+
+# ===========================================
+# DEVELOPMENT & TESTING
+# ===========================================
+SAMPLE_DATA_PATH=./tests/sample_data/
+TEST_DATABASE_URL=sqlite:///./test.db
+
+# ===========================================
+# CLOUD DEPLOYMENT OVERRIDES
+# ===========================================
+# Uncomment these for cloud platforms:
+
+# For Railway/Render/Fly.io:
+# PORT=8000                    # Platform will set this
+# HOST=0.0.0.0                # Required for cloud platforms
+
+# For Docker deployment:
+# OLLAMA_API_BASE=http://host.docker.internal:11434
+
+# For external hosting without Ollama:
+# OLLAMA_API_BASE=http://your-ollama-server:11434
+
+# ===========================================
+# FALLBACK API KEYS (OPTIONAL)
+# ===========================================
+# If Ollama is unavailable, these can be used as fallbacks:
+
+# OpenAI (if needed as fallback)
+# OPENAI_API_KEY=your_openai_api_key_here
+
+# Anthropic (as mentioned in your original)
+# ANTHROPIC_API_KEY=your_anthropic_api_key_here
+
+# HuggingFace (for fallback models)
+# HUGGINGFACE_API_KEY=your_hf_token_here
+
+# Together AI (fast inference)
+# TOGETHER_API_KEY=your_together_key_here
+
+# Groq (very fast inference)
+# GROQ_API_KEY=your_groq_key_here
+
+# ===========================================
+# DEPLOYMENT NOTES
+# ===========================================
+# 1. For local development: Use as-is with Ollama
+# 2. For cloud deployment: 
+#    - Set ENVIRONMENT=production
+#    - Set DEBUG=False
+#    - Update CORS_ORIGINS for security
+#    - Consider using external LLM API if Ollama unavailable
+# 3. Never commit API keys to version control
+# 4. Use platform-specific environment variable injection

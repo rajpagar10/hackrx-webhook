@@ -1,0 +1,107 @@
+[
+  {
+    "file_name": "doc1.pdf",
+    "file_path": "data\\raw_documents\\doc1.pdf",
+    "file_size": 495058,
+    "doc_type": "document",
+    "format": ".pdf"
+  },
+  {
+    "file_name": "doc10.pdf",
+    "file_path": "data\\raw_documents\\doc10.pdf",
+    "file_size": 116824,
+    "doc_type": "document",
+    "format": ".pdf"
+  },
+  {
+    "file_name": "doc2.pdf",
+    "file_path": "data\\raw_documents\\doc2.pdf",
+    "file_size": 1399614,
+    "doc_type": "document",
+    "format": ".pdf"
+  },
+  {
+    "file_name": "doc3.pdf",
+    "file_path": "data\\raw_documents\\doc3.pdf",
+    "file_size": 2457035,
+    "doc_type": "document",
+    "format": ".pdf"
+  },
+  {
+    "file_name": "doc4.pdf",
+    "file_path": "data\\raw_documents\\doc4.pdf",
+    "file_size": 117945,
+    "doc_type": "document",
+    "format": ".pdf"
+  },
+  {
+    "file_name": "doc5.pdf",
+    "file_path": "data\\raw_documents\\doc5.pdf",
+    "file_size": 1329008,
+    "doc_type": "document",
+    "format": ".pdf"
+  },
+  {
+    "file_name": "doc6.pdf",
+    "file_path": "data\\raw_documents\\doc6.pdf",
+    "file_size": 392151,
+    "doc_type": "document",
+    "format": ".pdf"
+  },
+  {
+    "file_name": "doc7.pdf",
+    "file_path": "data\\raw_documents\\doc7.pdf",
+    "file_size": 452255,
+    "doc_type": "document",
+    "format": ".pdf"
+  },
+  {
+    "file_name": "doc8.pdf",
+    "file_path": "data\\raw_documents\\doc8.pdf",
+    "file_size": 438003,
+    "doc_type": "document",
+    "format": ".pdf"
+  },
+  {
+    "file_name": "doc9.pdf",
+    "file_path": "data\\raw_documents\\doc9.pdf",
+    "file_size": 573204,
+    "doc_type": "document",
+    "format": ".pdf"
+  },
+  {
+    "file_name": "docx11.docx",
+    "file_path": "data\\raw_documents\\docx11.docx",
+    "file_size": 477160,
+    "doc_type": "document",
+    "format": ".docx"
+  },
+  {
+    "file_name": "docx12.docx",
+    "file_path": "data\\raw_documents\\docx12.docx",
+    "file_size": 173629,
+    "doc_type": "document",
+    "format": ".docx"
+  },
+  {
+    "file_name": "docx13.docx",
+    "file_path": "data\\raw_documents\\docx13.docx",
+    "file_size": 218410,
+    "doc_type": "document",
+    "format": ".docx"
+  },
+  {
+    "file_name": "docx14.docx",
+    "file_path": "data\\raw_documents\\docx14.docx",
+    "file_size": 167003,
+    "doc_type": "document",
+    "format": ".docx"
+  },
+  {
+    "file_name": "docx15.docx",
+    "file_path": "data\\raw_documents\\docx15.docx",
+    "file_size": 107163,
+    "doc_type": "document",
+    "format": ".docx"
+  }
+]

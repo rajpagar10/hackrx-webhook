@@ -1,0 +1,139 @@
+# Updated config.yaml for Open Source LLMs
+
+# Project Settings
+project:
+  name: "LLM Document Processing System"
+  version: "1.0.0"
+  description: "AI-powered document analysis for insurance claims using open source LLMs"
+
+# File Paths
+paths:
+  raw_documents: "./data/raw_documents/"
+  processed_data: "./data/processed/"
+  vector_db: "./data/vector_db/chroma_db/"
+  logs: "./logs/"
+  
+# Document Processing Settings
+document_processing:
+  supported_formats: [".pdf", ".docx", ".eml", ".txt"]
+  chunk_size: 200  # words per chunk
+  chunk_overlap: 50  # overlapping words
+  max_file_size_mb: 50
+  
+  # Text cleaning patterns
+  cleaning_patterns:
+    remove_headers: true
+    remove_footers: true
+    normalize_whitespace: true
+    preserve_medical_terms: true
+
+# Embedding Settings  
+embeddings:
+  model_name: "BAAI/bge-base-en-v1.5"
+  batch_size: 32
+  normalize: true
+  instruction_prefix: "Represent this sentence for searching relevant passages: "
+
+# Vector Database
+vector_db:
+  provider: "chromadb"
+  collection_name: "document_chunks"
+  similarity_metric: "cosine"
+  persist_directory: "./data/vector_db/chroma_db/"
+
+# =====================================
+# OPEN SOURCE LLM SETTINGS (Updated!)
+# =====================================
+
+llm:
+  # Primary provider - Ollama (recommended)
+  provider: "ollama"              # Changed from "openai"
+  model: "llama3"                 # Changed from "gpt-4-turbo-preview"
+  base_url: "http://localhost:11434"  # Ollama server URL
+  temperature: 0.1
+  max_tokens: 2000
+  timeout: 180
+  
+  # Alternative models you can use:
+  # model: "mistral"       # Great for reasoning
+  # model: "gemma2"        # Google's model, good with structured output
+  # model: "codellama"     # Code-focused analysis
+  # model: "qwen2.5"       # Multilingual support
+  
+  # Backup providers (if Ollama fails)
+  fallback_providers:
+    - provider: "huggingface_transformers"
+      model: "microsoft/DialoGPT-medium"
+    - provider: "huggingface_api"
+      model: "mistralai/Mistral-7B-Instruct-v0.1"
+
+# Query Processing
+query_processing:
+  normalization:
+    lowercase: true
+    remove_punctuation: true
+    preserve_abbreviations: ["PED", "NCD", "ICU", "AYUSH"]
+  
+  categories:
+    - "Coverage"
+    - "Waiting Period" 
+    - "Eligibility"
+    - "Limits"
+    - "Definition"
+    - "Discounts"
+    - "Benefits"
+    - "Hospitalization"
+    - "AYUSH"
+    - "Maternity"
+
+# Semantic Search
+semantic_search:
+  top_k: 5
+  similarity_threshold: 0.7
+  rerank: false
+
+# Response Generation
+response:
+  format: "json"
+  include_sources: true
+  max_justification_length: 500
+  required_fields: ["decision", "justification", "relevant_clauses"]
+
+# API Settings
+api:
+  host: "0.0.0.0"
+  port: 8000
+  debug: false
+  cors_origins: ["http://localhost:3000", "http://127.0.0.1:3000"]
+  rate_limit: "100/minute"
+
+# Logging
+logging:
+  level: "INFO"
+  format: "json"
+  file: "./logs/app.log"
+  rotation: "1 day"
+  retention: "30 days"
+
+# Performance
+performance:
+  max_concurrent_requests: 10
+  request_timeout: 60
+  cache_embeddings: true
+  cache_ttl: 3600  # seconds
+  
+  # Local LLM specific optimizations
+  local_llm:
+    enable_gpu: true        # Use GPU if available
+    max_batch_size: 4       # For local processing
+    context_window: 4096    # Token context limit
+
+# Development/Testing
+development:
+  sample_queries: [
+    "What is the grace period for premium payment?",
+    "Is cataract surgery covered under the policy?", 
+    "What are the waiting periods for pre-existing diseases?",
+    "How to file a cashless claim?",
+    "What is the room rent limit?"
+  ]
