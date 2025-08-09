@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-set -e  # stop if any command fails
+set -e
 
-# Install Rust
-curl https://sh.rustup.rs -sSf | sh -s -- -y
+# Install Rust 
+curl https://sh.rustup.rs -sSf | sh -s -- -y --no-modify-path --default-toolchain stable
 source $HOME/.cargo/env
 
 # Upgrade pip & install dependencies
